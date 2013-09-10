@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>
+        List of use cases that my web service implements</h1>
+    <ul>
+        <li>Anonymous/Public – this role does not have a name, and users in this role can request
+            resources which do not have the [Authorize] attribute; this role can request basic
+            info, like programs, subjects, employees</li>
+        <li>Student – select a semester, select their courses, view graded work in a number
+            of ways</li>
+        <li>Faculty – select a semester, add courses, add graded work</li>
+        <li>Coordinator – create a semester, use the app as any student or faculty member</li>
+    </ul>
+    <p>
+        More specifically, here are some thoughts about each entity in the app domain data
+        model:</p>
+    <ul>
+        <li>Program, Subject, Employee
+            <ul>
+                <li>Getting all entity’s data list and a specific row of data can be done by Anon/Public,
+                    Student, Faculty, and Coordinator. For example, in Fiddler composer, if a Public user chooses "GET" and enters "http://localhost:51161/api/programs",
+                    the user will get all programs list. If a Public user chooses "GET" and enters "http://localhost:51161/api/programs/1",
+                    the user will get program 1's details.</li>
+                <li>Posting and putting data into entity can be done by Coordinator. For example, in Fiddler composer, if the Coordinator chooses "POST", enters some data in JSON format, and enters "http://localhost:51161/api/programs",
+                    the Coordinator will add a program to the entity Program. </li>
+            </ul>
+        </li>
+        <li>Student
+            <ul>
+                <li>Getting all entity’s data list and a specific row of data can be done by Student,
+                    Faculty, and Coordinator. For example, in Fiddler composer, if a Student user chooses "GET" and enters "http://localhost:51161/api/students",
+                    the user will get all students list. If a Student user chooses "GET" and enters "http://localhost:51161/api/students/1",
+                    the user will get Student 1's details.</li>
+                <li>Posting, putting and deleting data into entity can be done by Coordinator. For example, in Fiddler composer, if the Coordinator chooses "POST", enters some data in JSON format, and enters "http://localhost:51161/api/students",
+                    the Coordinator will add a student to the entity Student. </li>
+            </ul>
+        </li>
+        <li>Semester
+            <ul>
+                <li>Getting all entity’s data list and a specific row of data can be done by Student,
+                    Faculty, and Coordinator. For example, in Fiddler composer, if a Student user chooses "GET" and enters "http://localhost:51161/api/semesters",
+                    the user will get all semesters list. If a Student user chooses "GET" and enters "http://localhost:51161/api/semesters/1",
+                    the user will get Semester 1's details.</li>
+                <li>Posting, putting and deleting data into entity can be done by Coordinator. For example, in Fiddler composer, if the Coordinator chooses "POST", enters some data in JSON format, and enters "http://localhost:51161/api/semesters",
+                    the Coordinator will add a semester to the entity Semester.</li>
+            </ul>
+        </li>
+        <li>Course
+            <ul>
+                <li>Getting all entity’s data list and a specific row of data can be done by Anon/Public,
+                    Student, Faculty, and Coordinator. For example, in Fiddler composer, if a Student user chooses "GET" and enters "http://localhost:51161/api/courses",
+                    the user will get all courses list. If a Student user chooses "GET" and enters "http://localhost:51161/api/courses/1",
+                    the user will get Course 1's details.</li>
+                <li>Posting, putting and deleting data into entity can be done by Faculty and Coordinator. For example, in Fiddler composer, if the Coordinator chooses "POST", enters some data in JSON format, and enters "http://localhost:51161/api/courses",
+                    the Coordinator will add a course to the entity Course.</li>
+            </ul>
+        </li>
+        <li>GradedWork
+            <ul>
+                <li>Getting all entity’s data list and a specific row of data can be done by Student,
+                    Faculty, and Coordinator. For example, in Fiddler composer, if a Student user chooses "GET" and enters "http://localhost:51161/api/gradedworks",
+                    the user will get all gradedworks list. If a Student user chooses "GET" and enters "http://localhost:51161/api/gradedworks/1",
+                    the user will get GradedWork 1's details.</li>
+                <li>Posting, putting and deleting data into entity can be done by Faculty and Coordinator. For example, in Fiddler composer, if the Coordinator chooses "POST", enters some data in JSON format, and enters "http://localhost:51161/api/gradedworks",
+                    the Coordinator will add a gradedwork to the entity GradedWork.</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
